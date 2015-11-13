@@ -1,7 +1,19 @@
 # Data representation sample api
+## Data Representation and Querying Project 2015
+### Peter Nagy
 Api Documentation - Museum Standards programme (data.gov.ie)
 
-*Data*
+# About API
+This api design tries to follow the best patterns of designing a RESTful HTTP api. The examples covered are:
+- *PUT* - Replaces all found elements with the data passed to endpoint and idetified as. For safety use idenitfiers in request
+- *POST* - Send data in as part of FORM or plain to modifie data or upload files. For additional security pass id.
+- *GET* - Retreive single or list of data from API. Secure method.
+- *DELETE* - Delete, removes objects identified uniqually. For security pass id with data.
+
+The api should include additional security features like login and/or identification system like OAuth. This is not covered in this documentation.
+
+##About the data
+The data contains details about Irish museums, found in csv format, converted to json.
 ```
 The original data can be found at:
 https://data.gov.ie/dataset/museums-standards-programme-for-ireland/resource/f743ca36-5fe6-4396-b110-f138f7e61794
@@ -48,16 +60,7 @@ https://drive.google.com/file/d/0B31npoE6CRlSeUcxUFFKYS16ejA/view
          ]
 
 
-**About API**
-This api design tries to follow the best patterns of designing a RESTful HTTP api. The examples covered are:
-- *PUT* - Replaces all found elements with the data passed to endpoint and idetified as. For safety use idenitfiers in request
-- *POST* - Send data in as part of FORM or plain to modifie data or upload files. For additional security pass id.
-- *GET* - Retreive single or list of data from API. Secure method.
-- *DELETE* - Delete, removes objects identified uniqually. For security pass id with data.
-
-The api should include additional security features like login and/or identification system like OAuth. This is not covered in this documentation.
-
-**DATA retreival**
+# DATA retreival
 Data could be retreived from such an api trough lightweight front-end requests, made by JavaScript(Jquery/Ajax).
 An example:
 ```
@@ -81,7 +84,7 @@ Example request in CUrl:
 curl -X GET -H "Cache-Control: no-cache" 'http://name.tld/api1/museum/2'
 ```
 
-** Endpoint summary **
+# Endpoint summary
 
 Data Task | Endpoint | Parameter validation 
 Return data(GET) | http://name.tld/api1/museum[/:id[/:county]] | (?<id>[0-9_-]+)(\.(?<format>(json|html|xml)))?
@@ -90,7 +93,7 @@ Replace(PUT) | http://name.tld/api1/museum[/:id]/[:json-data] | (?<id>[0-9_-]+)(
 REmove(DELETE) | http://name.tld/api1/museum[/:id] | (?<id>[0-9_-]+)?
 
 
-***Sample requests:***
+# Sample requests:
 The api's root is http://name.tld/api1/museum
 
 **GET**
