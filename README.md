@@ -49,10 +49,10 @@ https://drive.google.com/file/d/0B31npoE6CRlSeUcxUFFKYS16ejA/view
 
 **About API**
 This api design tries to follow the best patterns of designing a RESTful HTTP api. The examples covered are:
-1.*PUT* - Replaces all found elements with the data passed to endpoint and idetified as. For safety use idenitfiers in request
-1.*POST* - Send data in as part of FORM or plain to modifie data or upload files. For additional security pass id.
-1.*GET* - Retreive single or list of data from API. Secure method.
-1.*DELETE* - Delete, removes objects identified uniqually. For security pass id with data.
+- *PUT* - Replaces all found elements with the data passed to endpoint and idetified as. For safety use idenitfiers in request
+- *POST* - Send data in as part of FORM or plain to modifie data or upload files. For additional security pass id.
+- *GET* - Retreive single or list of data from API. Secure method.
+- *DELETE* - Delete, removes objects identified uniqually. For security pass id with data.
 
 The api should include additional security features like login and/or identification system like OAuth. This is not covered in this documentation.
 
@@ -80,7 +80,15 @@ Example request in CUrl:
 curl -X GET -H "Cache-Control: no-cache" 'http://name.tld/api1/museum/2'
 ```
 
-
+** Endpoint summary **
+```
+Data Task | Endpoint | Parameter validation
+-----|----------|-----------
+Return data | http://name.tld/api1/museum[/:id[/:county]] | (?<id>[0-9_-]+)(\.(?<format>(json|html|xml)))?
+------------|---------------------------------------------|-----------------------------------------------
+Add/cahange |http://name.tld/api1/museum[/:id]/{update | create}/[:form-data] | (?<id>[0-9_-]+)(\.(?<form-data>([a-zA-Z][a-zA-Z0-9_-]+)))?
+------------|-----------------------------------------------------------------|
+```
 
 
 ***Sample requests:***
