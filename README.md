@@ -141,6 +141,18 @@ form-data:
     
     Content-Disposition: form-data; name="ITM_NORTH" value=564616516
 
-
+//create response
+HTTP/1.1 201 Created
+Location /api1/museum/3/create
 
 **PUT**
+The api can take in a json in the formate, a keys of the sample data above. 
+
+The options for this endpoint:
+http://name.tld/api1/museum[/:id]/[:json-data]
+
+
+```
+PUT /article/1234 HTTP/1.1 
+
+```
