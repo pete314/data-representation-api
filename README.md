@@ -1,13 +1,18 @@
 # data-representation-api
-Sample api documentation
+Api Documentation - Museum Standards programme (data.gov.ie)
 
-data set
+*Data*
+The original data can be found at:
 https://data.gov.ie/dataset/museums-standards-programme-for-ireland/resource/f743ca36-5fe6-4396-b110-f138f7e61794
 
-direct link
+Direct link:
 http://www.heritagecouncil.ie/fileadmin/user_upload/Heritage_Maps/LAMN-CSV.csv
 
-**Sample Data**
+Json data:
+https://drive.google.com/file/d/0B31npoE6CRlSeUcxUFFKYS16ejA/view
+
+
+**Sample of the Data**
 
     JSON
     [
@@ -40,6 +45,41 @@ http://www.heritagecouncil.ie/fileadmin/user_upload/Heritage_Maps/LAMN-CSV.csv
       },
             ....
          ]
+
+
+**About API**
+This api design tries to follow the best patterns of designing a RESTful HTTP api. The examples covered are:
+1.*PUT* - Replaces all found elements with the data passed to endpoint and idetified as. For safety use idenitfiers in request
+1.*POST* - Send data in as part of FORM or plain to modifie data or upload files. For additional security pass id.
+1.*GET* - Retreive single or list of data from API. Secure method.
+1.*DELETE* - Delete, removes objects identified uniqually. For security pass id with data.
+
+The api should include additional security features like login and/or identification system like OAuth. This is not covered in this documentation.
+
+**DATA retreival**
+Data could be retreived from such an api trough lightweight front-end requests, made by JavaScript(Jquery/Ajax).
+An example:
+```
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "http://name.tld/api1/museum/2",
+  "method": "GET",
+  "headers": {
+    "cache-control": "no-cache",
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+Example request in CUrl:
+```
+curl -X GET -H "Cache-Control: no-cache" 'http://name.tld/api1/museum/2'
+```
+
 
 
 
