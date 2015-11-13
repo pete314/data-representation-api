@@ -101,10 +101,10 @@ Would return result set a single element is:
 
 
 **POST**
-Post request in this application resolve into data manipulation(unsecure). To add extra security all post request have to be made by passing the id of the object. 
+Post request in this application resolve into data manipulation(unsecure). To add extra security all post request have to be made by passing the id of the object. If the request is "create", the id is in use the api would replace it, and return the id of the created object.
 There are the following options:
 
-http://name.tld/api1/museum[/:id]/update/[:form-data]
+http://name.tld/api1/museum[/:id]/{update | create}/[:form-data]
 id: positive integer{refers to OBJECT_ID, returns object}
 form-data: 
     "Name": string {required}
@@ -141,3 +141,6 @@ form-data:
     
     Content-Disposition: form-data; name="ITM_NORTH" value=564616516
 
+
+
+**PUT**
