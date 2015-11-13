@@ -81,14 +81,12 @@ curl -X GET -H "Cache-Control: no-cache" 'http://name.tld/api1/museum/2'
 ```
 
 ** Endpoint summary **
-```
-Data Task | Endpoint | Parameter validation
------|----------|-----------
-Return data | http://name.tld/api1/museum[/:id[/:county]] | (?<id>[0-9_-]+)(\.(?<format>(json|html|xml)))?
-------------|---------------------------------------------|-----------------------------------------------
-Add/cahange |http://name.tld/api1/museum[/:id]/{update | create}/[:form-data] | (?<id>[0-9_-]+)(\.(?<form-data>([a-zA-Z][a-zA-Z0-9_-]+)))?
-------------|-----------------------------------------------------------------|
-```
+
+Data Task | Endpoint | Parameter validation 
+Return data(GET) | http://name.tld/api1/museum[/:id[/:county]] | (?<id>[0-9_-]+)(\.(?<format>(json|html|xml)))?
+Add/cahange(POST) | http://name.tld/api1/museum[/:id]/{update | create}/[:form-data] | (?<id>[0-9_-]+)(\.(?<form-data>([a-zA-Z][a-zA-Z0-9_-]+)))?
+Replace(PUT) | http://name.tld/api1/museum[/:id]/[:json-data] | (?<id>[0-9_-]+)(\.(?<format>(json)))?
+REmove(DELETE) | http://name.tld/api1/museum[/:id] | (?<id>[0-9_-]+)?
 
 
 ***Sample requests:***
