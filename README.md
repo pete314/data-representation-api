@@ -142,8 +142,10 @@ form-data:
     Content-Disposition: form-data; name="ITM_NORTH" value=564616516
 
 //create response
+```
 HTTP/1.1 201 Created
 Location /api1/museum/3/create
+```
 
 **PUT**
 The api can take in a json in the formate, a keys of the sample data above. 
@@ -153,6 +155,36 @@ http://name.tld/api1/museum[/:id]/[:json-data]
 
 
 ```
-PUT /article/1234 HTTP/1.1 
+PUT /api1/museum/12 HTTP/1.1 
+[
+  {
+    "OBJECT_ID": 12,
+    "Name": "Bishop's Palace",
+    "Add1": 0,
+    "Add3": "Waterford",
+    "County": "Waterford",
+    "Phone": "051 304500",
+    "Website": "http://www.waterfordtreasures.com/bishops-palace/index.htm",
+    "Email": "waterfordtreasures@waterfordcity.ie",
+    "Blurb": "The Mall is a beautiful walk...",
+    "ITM_East": 660930,
+    "ITM_North": 612350
+  }
+]
+```
 
+
+**DELETE**
+The api can take in a DELETE, request with an id as idetifier, to delete the uniqually idetified item.
+
+The options for this endpoint:
+http://name.tld/api1/museum[/:id]
+
+
+```
+DELETE /api1/museum/12 HTTP/1.1 
+
+//reponse
+HTTP/1.1 201 Deleted
+Location /api1/museum/12
 ```
